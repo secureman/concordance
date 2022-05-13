@@ -20,13 +20,13 @@ def predict_encoding(file_path, n_lines=20):
 
     return chardet.detect(rawdata)['encoding']
 
-text = '/home/mac101/python_learn/testing/concordance/Khaleej-2004/Economy/arc_Articlesww0221.html'
+text = './testing.txt'
 #fili = predict_encoding(filep_ath)
 #print(fili)
 def concordancing(text):
     with open(text, encoding = predict_encoding(text))as f:
         for f in f:
-            tokens = nltk.word_tokenize(arabic_reshaper.reshape(f))
+            tokens = nltk.word_tokenize(f)
             text = nltk.Text(tokens)
             text.concordance(input('what word u looking for:' ))
             print(text.concordance)
