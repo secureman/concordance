@@ -20,7 +20,7 @@ def predict_encoding(file_path, n_lines=20):
 
     return chardet.detect(rawdata)['encoding']
 
-text = './testing.txt'
+text ='./testing.txt'
 #fili = predict_encoding(filep_ath)
 #print(fili)
 def concordancing(text):
