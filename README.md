@@ -1,6 +1,6 @@
 # A simple tool to analyze texts, whether Arabic or Latin languages. 
 ### installation: 
-   1. git clone https://
+   1. git clone https://github.com/secureman/concordance.git
    2. cd
    3. pip install -r requirements.txt
 
