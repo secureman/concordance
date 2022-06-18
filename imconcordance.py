@@ -8,7 +8,13 @@ import bidi.algorithm
 import sys
 from nltk.collocations import BigramCollocationFinder
 from nltk.metrics import BigramAssocMeasures
+import argparse
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 
+
+parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
+parser.add_argument("-t", "--text", help="Text file to be processed")
+args = vars(parser.parse_args())
 def predict_encoding(file_path, n_lines=20):
     '''Predict a file's encoding using chardet'''
     import chardet
@@ -20,9 +26,8 @@ def predict_encoding(file_path, n_lines=20):
 
     return chardet.detect(rawdata)['encoding']
 
-text ='./testing.txt'
-#fili = predict_encoding(filep_ath)
-#print(fili)
+text = args["text"]
+
 def concordancing(text):
     with open(text, encoding = predict_encoding(text))as f:
         for f in f:
@@ -33,6 +38,7 @@ def concordancing(text):
             bcf = BigramCollocationFinder.from_words(tokens)
             print(bcf.nbest(BigramAssocMeasures.likelihood_ratio, 4))
    # return()
+
 concordancing(text)
 
 
